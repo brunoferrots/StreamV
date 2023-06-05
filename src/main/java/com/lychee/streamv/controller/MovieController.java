@@ -3,6 +3,7 @@ package com.lychee.streamv.controller;
 import com.lychee.streamv.domain.movie.Movie;
 import com.lychee.streamv.domain.movie.MovieDTO;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,8 @@ public class MovieController {
         return "movies/form";
     }
     @GetMapping
-    public String renderPageList() {
+    public String renderPageList(Model model) {
+        model.addAttribute("list", movies);
         return "movies/list";
     }
 
@@ -30,6 +32,6 @@ public class MovieController {
         movies.add(movie);
         System.out.println(movies);
 
-        return "movies/form";
+        return "redirect:/movies";
     }
 }
