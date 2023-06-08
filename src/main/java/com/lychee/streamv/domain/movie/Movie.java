@@ -1,8 +1,17 @@
 package com.lychee.streamv.domain.movie;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "movies")
 public class Movie {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private Integer duration;
+    @Column(name = "release_year")
     private Integer releaseYear;
     private String category;
 
@@ -11,6 +20,10 @@ public class Movie {
         this.duration = movieDTO.duration();
         this.releaseYear = movieDTO.year();
         this.category = movieDTO.category();
+    }
+
+    public Movie() {
+
     }
 
     @Override
