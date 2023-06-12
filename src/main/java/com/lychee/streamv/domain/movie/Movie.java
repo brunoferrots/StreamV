@@ -36,6 +36,10 @@ public class Movie {
                 '}';
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -66,5 +70,12 @@ public class Movie {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public void updateData(MovieAlterDTO data) {
+        this.name = data.name();
+        this.duration = data.duration();
+        this.releaseYear = data.releaseYear();
+        this.category = data.category();
     }
 }

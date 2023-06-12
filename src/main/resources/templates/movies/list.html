@@ -11,6 +11,8 @@
     <div layout:fragment="content">
         <h1>Movies List</h1>
 
+        <a href="/movies/form">New Movie</a>
+
         <table>
             <thead>
                 <tr>
@@ -18,6 +20,7 @@
                     <th>DURATION</th>
                     <th>RELEASE YEAR</th>
                     <th>CATEGORY</th>
+                    <th>ACTIONS</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,6 +29,15 @@
                     <td th:text="${movie.duration}" ></td>
                     <td th:text="${movie.releaseYear}" ></td>
                     <td th:text="${movie.category}" ></td>
+                    <td>
+                        <a th:href="@{/movies/form(id=${movie.id})}">Edit</a>
+
+                        <form action="/movies" method="post">
+                            <input type="hidden" name="_method" value="delete">
+                            <input type="hidden" name="id" th:value="${movie.id}">
+                            <input type="submit" value="delete">
+                        </form>
+                    </td>
                 </tr>
             </tbody>
         </table>
