@@ -18,7 +18,7 @@ public class Movie {
     public Movie(MovieDTO movieDTO) {
         this.name = movieDTO.name();
         this.duration = movieDTO.duration();
-        this.releaseYear = movieDTO.year();
+        this.releaseYear = movieDTO.releaseYear();
         this.category = movieDTO.category();
     }
 

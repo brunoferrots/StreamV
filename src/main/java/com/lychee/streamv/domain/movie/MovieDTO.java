@@ -1,4 +1,4 @@
 package com.lychee.streamv.domain.movie;
 
-public record MovieDTO(String name, Integer duration, Integer year, String category) {
+public record MovieDTO(String name, Integer duration, Integer releaseYear, String category) {
 }
